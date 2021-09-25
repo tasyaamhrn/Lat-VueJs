@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Method,filter,computed</title>
+    <script src="lib/vue.js"></script>
+</head>
+<body>
+    <!-- Ketiganya menghasilkan tampilan yang sama serta reaktif terhadap perubahan variabel data. Namun dari sisi
+fleksibilitas tentu computed akan tereliminasi sebab pada kasus diatas fungsi upperCase hanya bisa
+digunakan spesifik pada variabel message saja. Artinya jika ada variabel lain yang ingin diubah bentuknya
+menjadi kapital maka kita harus membuat fungsi baru pada computed.
+Lantas kenapa filters? sebab filters sesuai dengan peruntukannya yaitu memanipulasi suatu teks yang
+diberikan pada suatu template, adapun methods umumnya digunakan ketika ada event yang memanggilnya. -->
+    <div id="app">
+        <h1>Filters: {{ message | upper }}</h1>
+        <h1>Methods: {{ upper(message) }}</h1>
+        <h1>Computed: {{ messageUpperCase }}</h1>
+    </div>
+    <script class="text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data:{
+            message:'Hello World'
+        },
+        filters: {
+            upper(text){
+                return text.toUpperCase()
+            }
+        },
+        methods: {
+            upper(text){
+                return text.toUpperCase()
+            }
+        },
+        computed:{
+            messageUpperCase(){
+                return this.message.toUpperCase()
+            }
+        }
+    })
+    </script>
+</body>
+</html>
