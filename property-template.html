@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Belajar Vue</title>
+    <!-- import library vue js -->
+    <script src="lib/vue.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/javascript">
+    var vm = new Vue({
+        // property el itu menunjukan id dari elemen html yang akan dijadikan target
+
+        el:'#app',
+        data: {
+            message:'hello world'
+            
+        },
+        // cara lain untuk mendefiniskan template yaitu menyatu dengan object Vue
+// melalui properti template.
+        template: "<h1>{{ message }}</h1>"
+    })
+    </script>
+</body>
+</html>

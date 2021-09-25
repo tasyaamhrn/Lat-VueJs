@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Belajar Vue</title>
+    <!-- import library vue js -->
+    <script src="lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <p>{{ teks }}</p>
+    </div>
+    <script type="text/javascript">
+    var vm = new Vue({
+        // property el itu menunjukan id dari elemen html yang akan dijadikan target
+
+        el:'#app',
+        data: {
+            message:'hello world',
+            teks:'selamat bergabung guys'
+        }
+    })
+    </script>
+</body>
+</html>

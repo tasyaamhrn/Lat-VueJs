@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Belajar Vue</title>
+    <!-- import library vue js -->
+    <script src="lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- jika kita menggunakan data dlm bentuk html
+        maka kita perlu memanggilnya dgn directive v-html -->
+        <!-- tanpa directive -->
+        <h1>{{ message }}</h1> 
+        <!-- dengan directive -->
+        <h1 v-html="message"></h1>
+        
+    </div>
+    <script type="text/javascript">
+    var vm = new Vue({
+        // property el itu menunjukan id dari elemen html yang akan dijadikan target
+
+        el:'#app',
+        data: {
+            message: "<span style='color:red'>Hello world</span>"
+        },
+    })
+    </script>
+</body>
+</html>

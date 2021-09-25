@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Belajar Vue</title>
+    <!-- import library vue js -->
+    <script src="lib/vue.js"></script>
+</head>
+
+<body>
+    <style type="text/css">
+        .title{
+            color:green;
+        }
+    </style>
+    <div id="app">
+        <!-- jika kita menggunakan class CSS yang dinamis pada template
+        maka kita perlu memanggilnya dgn directive v-bind -->
+        <!-- tanpa directive -->
+        <h1 v-bind:class="class_h1">{{ message }}</h1> 
+       
+        
+    </div>
+    <script type="text/javascript">
+    var vm = new Vue({
+        // property el itu menunjukan id dari elemen html yang akan dijadikan target
+
+        el:'#app',
+        data: {
+            message: "hello world",
+            class_h1 : "title"
+        },
+    })
+    </script>
+</body>
+</html>
