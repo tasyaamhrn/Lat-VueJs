@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Directive v-bind membinding atribut html </title>
+    <script src="lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <img v-bind:src="imageSrc">
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                imageSrc: 'logovue.png',
+            }
+        })
+        setTimeout(()=>{
+            vm.imageSrc= 'logohtml.png'
+        },3000);
+    </script>
+</body>
+</html>
