@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>input data bertipe array</title>
+    <script src="lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        Hobi <br>
+        <input type="checkbox" name="hobby1" value="nonton" v-model="hobbies">
+        <label for="hobby1">Nonton</label>
+        <input type="checkbox" name="hobby2" value="memasak" v-model="hobbies">
+        <label for="hobby2">Memasak</label>
+        <input type="checkbox" name="hobby3" value="membaca" v-model="hobbies">
+        <label for="hobby3">Membaca</label>
+        <br>
+        <span>Pilihan Hobi: {{ hobbies }}</span>
+        <hr>
+        <select v-model="categories" multiple>
+            <option value="01">Graphics Programming</option>
+            <option value="02">Mobile Application Development</option>
+            <option value="03">Virtual and Augmented Reality</option>
+        </select>
+        <span>selected: {{ categories }}</span>
+    </div>
+    <script>
+        var vm= new Vue({
+            el:'#app',
+            data:{
+                hobbies:[],
+                categories:[]
+            }
+        })
+    </script>
+</body>
+</html>

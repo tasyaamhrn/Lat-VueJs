@@ -9,17 +9,29 @@
 input ini di-bind dengan variabel title, sedangkan kode @input="title = $event.target.value"
 artinya ketika field diinput maka nilai variabel title akan diubah sesuai isian user. -->
     <div id="app">
-        <form>
+        <!-- <form>
             <input type="text" name="title" :value="title" @input="title=
             $event.target.value"/>
             {{ title }}
-        </form>
+        </form> -->
+        <!-- menggunakan v-model -->
+        <form>
+            <input type="text" name="title" v-model="title" placeholder="masukkan
+            judul">
+            {{ title }}
+            <br><br>
+            <textarea name="description" v-model="description"
+            placeholder="masukkan deskripsi"></textarea>
+            {{ description }}
+            </form>
     </div>
     <script>
         var vm= new Vue({
             el:'#app',
             data:{
-                title:'Mastering'
+                title:'',
+                description:''
+               
             },
         })
     </script>

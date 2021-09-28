@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Handling Submit Form & Validation</title>
+    <script src="lib/vue.js"></script>
+    <style>
+        form {
+        border: 1px solid #ddd;
+        padding:5px;
+        width:225px;
+        background: #efefef;
+        }
+        label{
+        display: block;
+        margin-top: 5px;
+        }
+        input, textarea, select, option {
+        min-width: 200px;
+        }
+        </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <form @submit="submitForm" action="http://example.com/add-product"
+        method="post">, kita menggunakan 3 atribut yaitu directive v-on:submit atau @submit (yang akan
+        dijalankan ketika form disubmit), action (endpoint pengiriman data), dan method (metode pengiriman data
+        apakah get atau post). -->
+
+        <form @submit="submitForm($event)" action="http://example.com/add-product" method="post">
+        <label>Title:</label>
+        <input type="text" name="title" ref="title" v-model="title"/>
+
+        <label>Description:</label>
+        <textarea v-model="description" name="description" ref="description"></textarea>
+
+        <label>Authors:</label>
+        <input type="text"  name="authors" ref="authors" v-model="authors">
+
+        <label>Price:</label>
+        <input type="number"  name="price" ref="price" v-model.number="price">
+
+        <label>Categories:</label>
+        <select v-model="categories" multiple>
+            <option v-for="option in options" :value="option.value">
+                {{ option.text }}
+            </option>
+        </select>
+        <label></label>
+        <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                title:'',
+                description:'',
+                authors:'',
+                price:0,
+                categories:[],
+                options:[
+                { text: 'Graphics Programming', value: '01' },
+                { text: 'Mobile Application Development', value: '02' },
+                { text: 'Virtual and Augmented Reality', value: '03' }  
+                ]
+            },
+            methods:{
+                submitForm(event){
+                  let error = 0
+
+                  if(this.title.length<3){
+                      error++
+                      this.$refs.title.focus()
+                      alert('Title minimal 3 karakter!')
+                  }
+                  else if(this.description.length >500){
+                      error++
+                      this.$refs.description.focus()
+                      alert('Description maximal 500 karakter')
+                  }
+                  else if(this.authors.length<3){
+                      error++
+                      this.$refs.authors.focus()
+                      alert('authors minimal 3 karakter')
+                  }
+                  else if(this.price < 0){
+                      error++
+                      this.$refs.price.focus()
+                      alert('price tidak boleh minus')
+                  }
+                  else if(this.categories.length === 0){
+                      error++
+                      alert('pilih minimal 1 category')
+                  }
+                  if(error === 0){
+                      alert('terimakasih telah mengisi dengan benar')
+                      //kirim data ke server
+                  }
+                    event.preventDefault()
+                }
+            }
+        })
+    </script>
+</body>
+</html>

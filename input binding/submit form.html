@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Handling Submit Form & Validation</title>
+    <script src="lib/vue.js"></script>
+    <style>
+        form {
+        border: 1px solid #ddd;
+        padding:5px;
+        width:225px;
+        background: #efefef;
+        }
+        label{
+        display: block;
+        margin-top: 5px;
+        }
+        input, textarea, select, option {
+        min-width: 200px;
+        }
+        </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <form @submit="submitForm" action="http://example.com/add-product"
+        method="post">, kita menggunakan 3 atribut yaitu directive v-on:submit atau @submit (yang akan
+        dijalankan ketika form disubmit), action (endpoint pengiriman data), dan method (metode pengiriman data
+        apakah get atau post). -->
+
+        <form @submit="submitForm($event)" action="http://example.com/add-product" method="post">
+        <label>Title:</label>
+        <input type="text" v-model="title"/>
+
+        <label>Description:</label>
+        <textarea v-model="description"></textarea>
+
+        <label>Authors:</label>
+        <input type="text" v-model="authors">
+
+        <label>Price:</label>
+        <input type="number" v-model.number="price">
+
+        <label>Categories:</label>
+        <select v-model="categories" multiple>
+            <option v-for="option in options" :value="option.value">
+                {{ option.text }}
+            </option>
+        </select>
+        <label></label>
+        <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                title:'',
+                description:'',
+                authors:'',
+                price:0,
+                categories:[],
+                options:[
+                { text: 'Graphics Programming', value: '01' },
+                { text: 'Mobile Application Development', value: '02' },
+                { text: 'Virtual and Augmented Reality', value: '03' }  
+                ]
+            },
+            methods:{
+                submitForm(event){
+                    console.log(event)
+                    // kode validasi
+                    // kode kirim ke server
+                    //kode status informasi
+                    alert('Terima Kasih')
+                    //block redirect ke action
+                   // Kode event.preventDefault() pada methods submitForm berfungsi untuk mencegah agar form tidak
+                 //diredirect ke alamat yang didefinisikan di atribut action, hal ini dikarenakan pengiriman data tidak melalui cara normal HTML melainkan melalui Javascript (http client).
+                    event.preventDefault()
+                }
+            }
+        })
+    </script>
+</body>
+</html>

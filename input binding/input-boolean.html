@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <title>Input Data bertipe boolean</title>
+    <script src="lib/vue.js">
+    </script>
+</head>
+<body>
+    <div id="app">
+        Gender:
+        <input type="checkbox" name="checkbox" v-model="gender">
+        <label for="checkbox">{{ gender }}</label>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                gender: true
+            }
+        })
+    </script>
+</body>
+</html>
