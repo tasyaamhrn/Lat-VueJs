@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input Binding</title>
+    <script src="lib/vue.js"></script>
+</head>
+<body>
+    <!-- Kode :value="title" menunjukkan bahwa nilai dari field
+input ini di-bind dengan variabel title, sedangkan kode @input="title = $event.target.value"
+artinya ketika field diinput maka nilai variabel title akan diubah sesuai isian user. -->
+    <div id="app">
+        <form>
+            <input type="text" name="title" :value="title" @input="title=
+            $event.target.value"/>
+            {{ title }}
+        </form>
+    </div>
+    <script>
+        var vm= new Vue({
+            el:'#app',
+            data:{
+                title:'Mastering'
+            },
+        })
+    </script>
+</body>
+</html>
