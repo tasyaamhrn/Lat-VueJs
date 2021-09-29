@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Local Component</title>
+    <script src="lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <component-a></component-a>
+        <component-b></component-b>
+        <component-c></component-c>
+    </div>
+    <script>
+        var ComponentA={
+            template:'<p>Component A</p>'
+        }
+        var ComponentB={
+            template:'<p>Component B</p>'
+        }
+        var ComponentC={
+            template:'<p>Component C</p>'
+        }
+        new Vue({
+            el:'#app',
+            components:{
+                'component-a':ComponentA,
+                'component-b':ComponentB,
+                'component-c':ComponentC
+            }
+        })
+    </script>
+</body>
+</html>
