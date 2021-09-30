@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Penamaan slot</title>
+    <script src="lib/vue.js"></script>
+    <!-- penamaan slot digunakan ketika kita membutuhkan 2-lebih konten yg akan dimuat -->
+</head>
+<body>
+    <div id="app">
+        <information>
+            <template v-slot="judul">
+            <h1>Info Penting!<h1>
+            </template>
+            <template v-slot="isi">
+            <p>Waspada, banyak curanmor!</p>
+            </template>
+            </information>
+</div>
+    <script>
+        Vue.component('information',{
+            template:`
+            <div class="card">
+                <slot name="judul"></slot>
+                <hr>
+                <slot name="isi"></slot>
+                </div>
+                                    `
+        })
+        var vm = new Vue({
+           el:'#app',
+          
+       })
+    </script>
+</body>
+</html>

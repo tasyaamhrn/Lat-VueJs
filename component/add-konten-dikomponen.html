@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menambah Konten didalam komponen dengan slot</title>
+    <script src="lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <information>
+            <p>Hati-hati lantai licin</p>
+        </information>
+    <script>
+        Vue.component('information',{
+            template:`
+            <div class="card">
+                <strong>Informasi</strong>
+                <hr>
+                <slot><slot>
+                    
+                    </div>
+                    `
+        })
+       var vm = new Vue({
+           el:'#app',
+       })
+    </script>
+</body>
+</html>
